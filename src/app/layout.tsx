@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header/header";
+import { Footer } from "@/components/footer/footer";
 
 const notoSansKR = Noto_Sans_KR({
   weight: ["400", "500", "700"],
@@ -27,6 +28,7 @@ export default function RootLayout({
           <Header />
         </header>
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

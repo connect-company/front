@@ -37,7 +37,7 @@ export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
       {isHover && (
         <div
           className={cn(
-            "fixed top-[110px] left-0 right-0 bg-[#0F162E]/90",
+            "fixed top-[80px] left-0 right-0 bg-[#0F162E]/90",
             "pb-[48px] px-[80px]",
           )}
         >

@@ -2,7 +2,7 @@
 
 import { NAV_ITEMS } from "@/app/constants/navigations";
 import { cn } from "@/app/utils/cn";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 type HambergerMenuProps = {
@@ -12,6 +12,11 @@ type HambergerMenuProps = {
 
 export const MobileNav = ({ isOpen, onClose }: HambergerMenuProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

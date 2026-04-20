@@ -2,23 +2,36 @@
 
 import { cn } from "@/app/utils/cn";
 import Icon from "../icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MobileNav } from "./mobileNav";
 import { DesktopNav } from "./desktopNav";
 
 export const Header = () => {
   const [hambergerOpen, setHambergerOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       <div
         className={cn(
           "w-full",
-          hambergerOpen || isDesktopMenuOpen ? "bg-[#0F162E]/90" : "bg-transparent",
+          hambergerOpen || isDesktopMenuOpen
+            ? "bg-[#0F162E]/90"
+            : isScrolled
+              ? "bg-[#0F162E]/80"
+              : "bg-transparent",
         )}
       >
-        <div className="w-full min-h-[80px] flex items-center justify-between px-[28px] py-[35px]">
+        <div className="w-full h-[80px] flex items-center justify-between px-[28px] py-[35px]">
           {/* 로고 - 왼쪽 */}
           <div className="w-fit xl:w-[230px]">
             {hambergerOpen ? (
@@ -42,14 +55,14 @@ export const Header = () => {
               {hambergerOpen ? (
                 <button
                   onClick={() => setHambergerOpen(false)}
-                  className="w-[30px] h-[30px]"
+                  className="w-[30px] h-[30px] cursor-pointer"
                 >
                   <Icon icon="HAMBERGER_CLOSE" />
                 </button>
               ) : (
                 <button
                   onClick={() => setHambergerOpen(true)}
-                  className="w-[30px] h-[30px]"
+                  className="w-[30px] h-[30px] cursor-pointer"
                 >
                   <Icon icon="HAMBERGER" />
                 </button>
