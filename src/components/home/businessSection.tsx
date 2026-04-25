@@ -3,6 +3,7 @@
 import { BUSINESS_ITEMS } from "@/app/constants/business";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export const BusinessSection = () => {
@@ -76,9 +77,10 @@ export const BusinessSection = () => {
       <div ref={emblaRef} className="overflow-hidden mt-[32px]">
         <div className="flex gap-[16px] pl-[20px] md:pl-[40px]">
           {BUSINESS_ITEMS.map((item) => (
-            <div
+            <Link
               key={item.id}
-              className="group relative flex-none w-[200px] h-[260px] rounded-[12px] overflow-hidden"
+              href={`/service?scroll=${item.slug}`}
+              className="group relative flex-none w-[200px] md:w-[260px] h-[260px] md:h-[340px] rounded-[12px] overflow-hidden"
             >
               <Image
                 src={item.image}
@@ -86,9 +88,24 @@ export const BusinessSection = () => {
                 fill
                 loading="eager"
                 sizes="200px"
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
-            </div>
+              <div
+                className="absolute inset-0 bg-[#1d3070]/80 opacity-0 group-hover:opacity-100
+  transition-opacity duration-300 flex flex-col items-center justify-center p-[12px]
+  text-center"
+              >
+                <p className="text-[14px] font-bold text-white/72 shadow-[0_16px_0_0_rgba(0,0,0,0.16)]">
+                  {item.titleEn}
+                </p>
+                <p className="text-[26px] font-bold text-white shadow-[0_16px_0_0_rgba(0,0,0,0.16)]">
+                  {item.title}
+                </p>
+                <p className="text-[16px] font-medium text-white">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
           ))}
           {/* 오른쪽 여백 확보용 스페이서: gap(16px) + 4px = 20px */}
           <div className="flex-none w-[4px] md:w-[24px]" />
