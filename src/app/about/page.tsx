@@ -3,10 +3,13 @@ import { AboutTaps } from "@/components/about/aboutTabs";
 import { Greeting } from "@/components/about/greeting";
 import { Member } from "@/components/about/member";
 import { HearoSection } from "@/components/heroSection/heroSection";
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
-export default function AboutPage() {
-  const [tab, setTab] = useState("인사말");
+const AboutContent = () => {
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState(() => searchParams.get("tab") ?? "인사말");
+
   return (
     <main className="">
       <HearoSection
@@ -22,5 +25,13 @@ export default function AboutPage() {
         {tab === "구성원" && <Member />}
       </div>
     </main>
+  );
+};
+
+export default function AboutPage() {
+  return (
+    <Suspense>
+      <AboutContent />
+    </Suspense>
   );
 }

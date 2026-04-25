@@ -17,7 +17,11 @@ export const ServiceTap = () => {
 
   const scrollTo = (slug: string) => {
     const el = document.getElementById(slug);
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      const headerOffset = 120;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
     setSelected(slug);
     setIsOpen(false);
   };

@@ -1,0 +1,4 @@
+ User-agent: *
+  Allow: /
+
+Sitemap: htpps://connectlabor.kr/sitemap.xml

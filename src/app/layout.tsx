@@ -13,7 +13,17 @@ const notoSansKR = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: "커넥트 노무법인",
-  description: "실력과 신뢰, 고객과 함께하는 모든 순간에 진심을 다합니다.",
+  description:
+    "기업자문, 노동사건, 산업재해, 급여 아웃소싱 등 인사노무 전 분야 전문 노무법인.대표노무사 이현우·김태훈. 02-707-2553",
+  keywords:
+    "커넥트노무법인, 커넥트노무, 이현우노무사, 김태훈노무사, 김준영노무사, 박진아노무사, 기업자문, 노동사건,부당해고, 부당해고구제신청, 임금체불, 산업재해, 노동조합, 인사노무컨설팅, 급여아웃소싱,4대보험, 직장내괴롭힘",
+  openGraph: {
+    title: "커넥트 노무법인 | 노무사 기업자문 노동사건 전문",
+    description:
+      "기업자문, 노동사건, 산업재해, 급여 아웃소싱 등 인사노무 전 분야 전문 노무법인.대표노무사 이현우·김태훈. 02-707-2553",
+    locale: "ko_KR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

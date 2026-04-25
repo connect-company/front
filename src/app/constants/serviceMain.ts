@@ -4,6 +4,7 @@ type ServiceMainItem = {
   id: number;
   icon: IconList;
   label: string;
+  slug: string;
   image: string;
   title: string;
   subtitle: string;
@@ -15,6 +16,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 1,
     icon: "SERVICE_1_ICON",
     label: "기업자문",
+    slug: "기업자문",
     image: "/business/기업자문.jpg",
     title:
       "기업의 리스크를 방지할 수 있도록 노동관계법률, 인사노무관리에 대한 기업 자문을 제공합니다.",
@@ -25,6 +27,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 2,
     icon: "SERVICE_2_ICON",
     label: "노동사건",
+    slug: "노동사건",
     image: "/business/노동사건.jpg",
     title: "시간이 지날수록 노동분쟁은 더욱 치열하고, 복잡해지고 있습니다.",
     subtitle:
@@ -36,6 +39,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 3,
     icon: "SERVICE_3_ICON",
     label: "컨설팅",
+    slug: "컨설팅",
     image: "/business/컨설팅.png",
     title:
       "노무관리 진단, 근로감독 대응, 규정 정비 등 기초적인 인사노무컨설팅부터 직무급, 근로시간 개편, 적정인력 산정, 근무환경 개선 등 기업 인사노무관리 전반에 대한 컨설팅 서비스를 제공합니다.",
@@ -46,6 +50,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 4,
     icon: "SERVICE_4_ICON",
     label: "노동조합",
+    slug: "노동조합",
     image: "/business/노동조합.jpg",
     title:
       "급여 및 4대보험 계산은 모두 노동관계법에 의해서 이뤄집니다. 통상임금, 퇴직금, 시급제, 일급제, 스케줄제, 병의원 네트제, 최저임금, 연차수당, 급여명세서 등은 모두 노동법과 관련됩니다.",
@@ -58,6 +63,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 5,
     icon: "SERVICE_5_ICON",
     label: "기업강의",
+    slug: "기업강의",
     image: "/business/기업강의.jpg",
     title:
       "근로기준법, 노동조합 및 노동관계조정법, 모성보호제도 등 매년 변화하는 노동관계법에 대한 최신 개정법 및 판례 동향을 공유하고, 기업의 니즈에 맞는 맞춤형 교육을 제공합니다.",
@@ -68,6 +74,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 6,
     icon: "SERVICE_6_ICON",
     label: "산업재해/어선원재해",
+    slug: "산업재해",
     image: "/business/산업재해.png",
     title:
       "산업재해 또는 어선원재해 발생 시, 당사자가 겪는 법적·경제적 어려움을 최소화하고, 신속하고 효율적인 해결을 위해 전문적인 지원을 제공합니다. 공인노무사들이 관련 법규와 절차에 대한 깊은 이해를 바탕으로, 재해 발생 후의 법적 대응부터 보상청구, 후속 조치까지 전 과정에 걸쳐 체계적인 서비스를 제공합니다.",
@@ -78,6 +85,7 @@ export const SERVICE_MAIN_ITEMS: ServiceMainItem[] = [
     id: 7,
     icon: "SERVICE_7_ICON",
     label: "급여 아웃소싱/4대보험",
+    slug: "급여",
     image: "/business/급여.jpg",
     title:
       "급여 및 4대보험 계산은 모두 노동관계법에 의해서 이뤄집니다. 통상임금, 퇴직금, 시급제, 일급제, 스케줄제, 병의원 네트제, 최저임금, 연차수당, 급여명세서 등은 모두 노동법과 관련됩니다.",

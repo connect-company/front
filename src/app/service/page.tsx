@@ -1,8 +1,31 @@
+"use client";
 import { HearoSection } from "@/components/heroSection/heroSection";
 import { MainSection } from "@/components/service/mainSection";
 import { ServiceTap } from "@/components/service/serviceTab";
+import { useSearchParams } from "next/navigation";
+import { useEffect, Suspense } from "react";
 
-export default function Page() {
+const ServiceContent = () => {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const slug = searchParams.get("scroll");
+    if (!slug) return;
+
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById(slug);
+      if (el) {
+        const headerOffset = 120;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top, behavior: "smooth" });
+      } else if (attempts < 10) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+
+    tryScroll();
+  }, [searchParams]);
+
   return (
     <main className="">
       <HearoSection
@@ -19,5 +42,13 @@ export default function Page() {
         <MainSection />
       </div>
     </main>
+  );
+};
+
+export default function Page() {
+  return (
+    <Suspense>
+      <ServiceContent />
+    </Suspense>
   );
 }

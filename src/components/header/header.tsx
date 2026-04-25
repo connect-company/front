@@ -5,11 +5,14 @@ import Icon from "../icon";
 import { useEffect, useState } from "react";
 import { MobileNav } from "./mobileNav";
 import { DesktopNav } from "./desktopNav";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const [hambergerOpen, setHambergerOpen] = useState(false);
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +36,7 @@ export const Header = () => {
       >
         <div className="w-full h-[80px] flex items-center justify-between px-[28px] py-[35px]">
           {/* 로고 - 왼쪽 */}
-          <div className="w-fit xl:w-[230px]">
+          <div onClick={() => router.push("/")} className="w-fit xl:w-[230px]">
             {hambergerOpen ? (
               <Icon icon="ONLY_LOGO" className="h-[30px] w-auto" />
             ) : (

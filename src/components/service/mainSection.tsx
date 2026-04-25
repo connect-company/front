@@ -32,6 +32,7 @@ export const MainSection = () => {
           {SERVICE_MAIN_ITEMS.map((item) => (
             <div
               key={item.id}
+              id={item.slug}
               className="w-full flex flex-col border border-[#e8e8e8] rounded-[20px] p-[16px] md:p-[32px] gap-[16px]"
             >
               {/* 뱃지 - 항상 전체 너비 */}
