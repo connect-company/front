@@ -1,4 +1,5 @@
 import { cn } from "@/app/utils/cn";
+import Image from "next/image";
 
 type HeroSectionProps = {
   bgImage: string;
@@ -25,10 +26,13 @@ export const HearoSection = ({
         className,
       )}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      ></div>
+      <Image
+        src={bgImage}
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+      />
 
       <div className="absolute inset-0 bg-black/50" />
 
