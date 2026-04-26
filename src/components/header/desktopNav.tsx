@@ -2,7 +2,7 @@
 import { cn } from "@/app/utils/cn";
 import { NAV_ITEMS } from "@/app/constants/navigations";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type DesktopNavProps = {
   onHoverChange: (value: boolean) => void;
@@ -10,14 +10,23 @@ type DesktopNavProps = {
 
 export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
   const [isHover, setHover] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleHover = (value: boolean) => {
-    setHover(value);
-    onHoverChange(value);
+  const handleEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setHover(true);
+    onHoverChange(true);
+  };
+
+  const handleLeave = () => {
+    closeTimer.current = setTimeout(() => {
+      setHover(false);
+      onHoverChange(false);
+    }, 100);
   };
 
   return (
-    <div onMouseLeave={() => handleHover(false)}>
+    <div onMouseLeave={handleLeave}>
       {/* 메인 메뉴 */}
       <ul className="flex w-full items-center gap-[100px]">
         {NAV_ITEMS.map((item) => (
@@ -25,7 +34,7 @@ export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
             <Link
               href={item.href}
               className="text-white text-[18px] font-bold hover:text-white/70 transition-colors"
-              onMouseEnter={() => handleHover(true)}
+              onMouseEnter={handleEnter}
             >
               {item.label}
             </Link>
@@ -36,6 +45,7 @@ export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
       {/* 메가 드롭다운 */}
       {isHover && (
         <div
+          onMouseEnter={handleEnter}
           className={cn(
             "fixed top-[80px] left-0 right-0 bg-[#0F162E]/90",
             "pb-[48px] px-[80px]",
