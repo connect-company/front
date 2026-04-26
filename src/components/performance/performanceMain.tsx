@@ -68,7 +68,7 @@ md:pb-[100px] lg:mt-[140px] flex flex-col lg:flex-row md:gap-[40px]"
                           <div className="w-[11px] h-[11px] rounded-full bg-[#1d3070]"></div>
                         </div>
                       ) : (
-                        <div className=" flex items-center justify-center min-w-[23px] h-[23px] rounded-full bg-white">
+                        <div className=" flex items-center justify-center min-w-[23px] h-[23px] md:w-[25px] md:h-[25px] rounded-full bg-white">
                           <div className="w-[7px] h-[7px] rounded-full bg-[#1d3070]"></div>
                         </div>
                       )}
