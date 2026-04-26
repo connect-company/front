@@ -38,6 +38,7 @@ md:pb-[100px] lg:mt-[140px] flex flex-col lg:flex-row md:gap-[40px]"
               src={item.image}
               alt={tabInfo?.label ?? ""}
               fill
+              priority
               sizes="(min-width: 768px) 320px, 100vw"
               className="object-cover rounded-[4px]"
             />
