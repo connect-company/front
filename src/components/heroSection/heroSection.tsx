@@ -53,14 +53,17 @@ export const HearoSection = ({
           </p>
         )}
         {button && (
-          <button
+          <a
+            href="https://docs.google.com/forms/d/16vbkLiN1oPQsboW3lQ7byOJlgaHNCZicK-6EGJnBeqk/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn(
               "w-[200px] h-[42px] flex items-center justify-center py-[12px] rounded-[24px] border border-white text-white text-[14px] font-bold mt-[24px]",
               "md:h-[48px] md:text-[16px]",
             )}
           >
             문의하기
-          </button>
+          </a>
         )}
       </div>
     </section>

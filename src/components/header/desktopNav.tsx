@@ -31,13 +31,25 @@ export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
       <ul className="flex w-full items-center gap-[100px]">
         {NAV_ITEMS.map((item) => (
           <li className="w-fit whitespace-nowrap" key={item.href}>
-            <Link
-              href={item.href}
-              className="text-white text-[18px] font-bold hover:text-white/70 transition-colors"
-              onMouseEnter={handleEnter}
-            >
-              {item.label}
-            </Link>
+            {item.href.startsWith("http") ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-[18px] font-bold hover:text-white/70 transition-colors"
+                onMouseEnter={handleEnter}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                href={item.href}
+                className="text-white text-[18px] font-bold hover:text-white/70 transition-colors"
+                onMouseEnter={handleEnter}
+              >
+                {item.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>
@@ -61,12 +73,23 @@ export const DesktopNav = ({ onHoverChange }: DesktopNavProps) => {
                   <ul className="flex flex-col justify-center items-center gap-[20px]">
                     {item.children.map((child) => (
                       <li key={child.href}>
-                        <Link
-                          href={child.href}
-                          className="text-white/60 text-sm hover:text-white transition-colors"
-                        >
-                          {child.label}
-                        </Link>
+                        {child.href.startsWith("http") ? (
+                          <a
+                            href={child.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white/60 text-sm hover:text-white transition-colors"
+                          >
+                            {child.label}
+                          </a>
+                        ) : (
+                          <Link
+                            href={child.href}
+                            className="text-white/60 text-sm hover:text-white transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>

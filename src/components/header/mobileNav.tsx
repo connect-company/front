@@ -44,14 +44,27 @@ export const MobileNav = ({ isOpen, onClose }: HambergerMenuProps) => {
           {openIndex === index && (
             <div className="flex flex-col items-center gap-[16px] pt-[16px]">
               {item.children.map((child) => (
-                <Link
-                  key={child.href}
-                  href={child.href}
-                  onClick={onClose}
-                  className="text-[16px] font-medium text-white/90"
-                >
-                  {child.label}
-                </Link>
+                child.href.startsWith("http") ? (
+                  <a
+                    key={child.href}
+                    href={child.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={onClose}
+                    className="text-[16px] font-medium text-white/90"
+                  >
+                    {child.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={child.href}
+                    href={child.href}
+                    onClick={onClose}
+                    className="text-[16px] font-medium text-white/90"
+                  >
+                    {child.label}
+                  </Link>
+                )
               ))}
             </div>
           )}

@@ -35,7 +35,7 @@ export const NAV_ITEMS = [
   },
   {
     label: "문의하기",
-    href: "/contact",
-    children: [{ label: "상담 문의", href: "/contact/inquiry" }],
+    href: "https://docs.google.com/forms/d/16vbkLiN1oPQsboW3lQ7byOJlgaHNCZicK-6EGJnBeqk/viewform",
+    children: [{ label: "상담 문의", href: "https://docs.google.com/forms/d/16vbkLiN1oPQsboW3lQ7byOJlgaHNCZicK-6EGJnBeqk/viewform" }],
   },
 ] as const;

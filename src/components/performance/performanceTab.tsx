@@ -32,7 +32,7 @@ export const PerformanceTab = ({ selected, onSelect }: PerformanceTabProps) => {
           onClick={() => handleSelect(item.slug)}
           className={cn(
             [
-              "w-full lg:h-[57px] flex items-center justify-center px-[10px] py-[10px] text-[14px] font-medium whitespace-nowrap",
+              "w-full lg:h-[57px] md:h-[57px] flex items-center justify-center px-[10px] py-[10px] text-[14px] font-medium whitespace-nowrap",
               index < VISIBLE_MOBILE ? "flex" : "hidden",
               index < VISIBLE_TABLET ? "md:flex" : "md:hidden",
               "lg:flex",
