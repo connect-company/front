@@ -8,10 +8,10 @@ export const Member = () => {
       {/* 헤더 - 모바일: 상단 / PC: 왼쪽 사이드바 */}
       <div className="mb-[32px] md:mb-0 md:w-[160px] md:shrink-0">
         <h3 className="text-[13px] md:text-[16px] font-bold text-[#1d3070]">
-          CONNECT MESSAGE
+          CONNECT MEMBERS
         </h3>
         <p className="text-[18px] md:text-[28px] font-bold text-[#111111]">
-          인사말
+          구성원
         </p>
       </div>
 
